@@ -1,4 +1,6 @@
 
+
+
 .button {
   font-size: 15px;
   font-weight: 700;
@@ -13,20 +15,19 @@
   border: none;
   background: #008752;
   cursor: pointer;
+  &:hover {
+    background: #26CD8B;
+  }
+  &:active {
+    background: #005232;
+  }
 }
-.button:hover {
-  background: #26CD8B;
-}
-.button:active {
-  background: #005232;
-}
-
-.button-secondary {
+.button_secondary {
   background: #95459A;
-}
-.button-secondary:hover {
-  background: #D665DD;
-}
-.button-secondary:active {
-  background: #722A77;
+  &:hover {
+    background: #D665DD;
+  }
+  &:active {
+    background: #722A77;
+  }
 }

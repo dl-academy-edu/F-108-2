@@ -1,0 +1,50 @@
+/* SERVICE */
+.service {
+    margin-top: 80px;
+    margin-bottom: 110px;
+  }
+  
+  .service-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .service-item {
+    width: 280px;
+  }
+  
+  /* .service-item:first-child {
+    background: red;
+  }
+  .service-item:nth-child(2n) {
+    background: #000;
+  }
+  .service-item:nth-child(3) {
+    background: green;
+  }
+  .service-item:last-child {
+    background: blue;
+  } */
+  
+  
+  .service-title {
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 50px;
+    text-transform: uppercase;
+    color: #00559D;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .service-name {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    color: #2C3036;
+    text-decoration: none;
+    display: block;
+    margin-top: 19px;
+    margin-bottom: 20px;
+    max-width: 75%;
+  }

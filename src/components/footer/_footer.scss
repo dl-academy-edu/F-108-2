@@ -3,30 +3,26 @@
 
 .footer {
   background: #00559D;
-}
-
-.footer-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 50px 0;
-}
-
-.footer-title {
-  font-weight: 900;
-  font-size: 40px;
-  line-height: 130%;
-  color: #FFFFFF;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+  }
+  &__title {
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 130%;
+    color: #FFFFFF;
+  }
 }
 
 .social {
   display: flex;
-}
-
-.social-item {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-.social-item:last-child {
-  margin-right: 0;
+  &__item {
+    margin-left: 16px;
+    margin-right: 16px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

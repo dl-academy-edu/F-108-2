@@ -1,0 +1,34 @@
+/* MAP */
+
+.map-wrapper {
+    background: #008752;
+    -webkit-display: flex;
+        -moz-display: flex;
+            display: flex;
+    -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+                flex-direction: column;
+    width: 380px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    color: #fff;
+    /* padding: 50px 44px 26px; */
+    padding-top: 50px;
+    padding-left: 44px;
+    padding-right: 44px;
+    padding-bottom: 26px;
+  }
+  
+  .map-title {
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 36px;
+    margin: 0;
+  }
+  
+  .map-phone {
+    color: #fff;
+    margin-bottom: 23px;
+    font-weight: 700;
+  }

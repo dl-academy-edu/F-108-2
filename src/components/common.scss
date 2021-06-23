@@ -19,11 +19,25 @@ img {
   display: block;
 }
 
+%psevdo {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+@mixin font-size($size:20px,$line-height:20px,$background:red) {
+  font-size: $size;
+  line-height: $line-height;
+  background: $background;
+}
+
 
 .banner .button {
   width: 360px;
-  font-size: 25px;
+  // font-size: 25px;
   padding: 16px;
+  @include font-size($background:green);
+  @extend %psevdo;
 }
 
 .dots-none {
@@ -210,3 +224,6 @@ legend {
 @import "./header/header";
 @import "./footer/footer";
 @import "./button/button";
+@import "./map/map";
+@import "./popup/popup";
+@import "./services/services";
