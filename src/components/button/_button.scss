@@ -1,6 +1,3 @@
-
-
-
 .button {
   font-size: 15px;
   font-weight: 700;
@@ -15,6 +12,7 @@
   border: none;
   background: #008752;
   cursor: pointer;
+  transition: background-color .4s;
   &:hover {
     background: #26CD8B;
   }
@@ -24,6 +22,7 @@
 }
 .button_secondary {
   background: #95459A;
+  transition: background-color .4s;
   &:hover {
     background: #D665DD;
   }
