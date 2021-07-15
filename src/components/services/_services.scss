@@ -7,10 +7,19 @@
   .service-list {
     display: flex;
     justify-content: space-between;
+    margin: 0 -10px;
+
+    @media screen and (max-width:767px) {
+      flex-wrap: wrap;
+    }
   }
   
   .service-item {
-    width: 280px;
+    max-width: 280px;
+    margin: 10px;
+    @media screen and (max-width:600px) {
+      max-width: 160px;
+    }
   }
   
   /* .service-item:first-child {

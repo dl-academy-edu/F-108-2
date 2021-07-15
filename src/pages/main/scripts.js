@@ -21,3 +21,16 @@ window.addEventListener('keydown', function(event) {
         }
     }
 })
+
+
+var buttonMobileHeader = document.querySelector('.mobile-header__menu_js');
+var buttonCloseMobileHeader = document.querySelector('.mobile-header__close_js');
+var mobileHeader = document.querySelector('.mobile-header');
+
+buttonMobileHeader.addEventListener('click', function() {
+    mobileHeader.classList.add('mobile-header__open');
+})
+
+buttonCloseMobileHeader.addEventListener('click', function() {
+    mobileHeader.classList.remove('mobile-header__open');
+})
