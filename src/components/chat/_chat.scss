@@ -21,13 +21,13 @@
     position: fixed;
     bottom: 100px;
     right: 40px;
-    background: #fff;
+    background: $white;
     width: 300px;
     height: 488px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.35);
     overflow: hidden;
     animation: chat-close 3s 6s forwards;
-    transition: .4s;
+    transition: $transition;
     &__header {
         background: #F6F6F8;
         padding: 15px;
@@ -37,13 +37,11 @@
         z-index: 2;
     }
     &__title {
-        font-size: 18px;
-        line-height: 22px;
+        @include font-size(18px,22px);
         color: #27253F;
     }
     &__desc {
-        font-size: 12px;
-        line-height: 14px;
+        @include font-size(12px,14px);
         color: #6B6A6A;
     }
     &__close {
@@ -74,8 +72,7 @@
     }
 
     &__message {
-        font-size: 14px;
-        line-height: 17px;
+        @include font-size(14px,17px);
         padding: 8px 10px;
         border-radius: 10px;
         width: 70%;
@@ -90,7 +87,7 @@
     }
     .message_right {
         background: #2198F4;
-        color: #fff;
+        color: $white;
         margin: 0 10px 15px auto;
         &:after {
             background: url(../../static/images/blue-tail.svg) no-repeat;

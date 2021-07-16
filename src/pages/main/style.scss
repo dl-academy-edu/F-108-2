@@ -1,12 +1,12 @@
-
-
+@import "../../components/vars";
+@import "../../components/mixins";
 
 /* BANNER */
 
 .banner {
   /* background: url('../../static/images/fon.jpg') center no-repeat #00559D; */
   background-image: url('../../static/images/fon.jpg');
-  background-color: #00559D;
+  background-color: $blue;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -14,15 +14,31 @@
   &__wrapper {
     padding-top: 143px;
     padding-bottom: 287px;
+
+    @media screen and (max-width:600px) {
+      padding-top: 55px;
+      padding-bottom: 375px;
+    }
+    @media screen and (max-width:767px) {
+      padding-top: 57px;
+      padding-bottom: 285px;
+    }
   }
   &__title {
-    font-weight: 900;
-    font-size: 90px;
-    line-height: 100%;
-    color: #00559D;
-    width: 70%;
+    @include font-size(90px,100%,900);
+    color: $blue;
     margin: 0;
     margin-bottom: 49px;
+
+    @media screen and (min-width:1130px) {
+      width: 70%;
+    }
+    @media screen and (max-width:1023px) {
+      @include font-size(60px,60px,900);
+    }
+    @media screen and (max-width:600px) {
+      @include font-size(36px,40px,900);
+    }
   }
 }
 
@@ -30,47 +46,51 @@
 
 .about {
   display: flex;
+  align-items: flex-start;
   position: relative;
   margin-bottom: 106px;
-}
-
-.about-title {
-  font-weight: 900;
-  font-size: 72px;
-  line-height: 100%;
-  color: #005DAB;
-  margin: 0;
-  margin-bottom: 46px;
-}
-
-.about-wrapper {
-  margin-right: 120px;
-  font-size: 30px;
-}
-
-.about-img {
-  box-shadow: 50px 50px 0 #008752;
-}
-
-.about .button {
-  margin-top: 20px;
-}
-
-@media screen and (max-width:600px) {
-  .about {
+  @media screen and (max-width:767px) {
     flex-wrap: wrap;
   }
-  .about-img {
-    order: 1;
-    margin-bottom: 90px;
+  &__title {
+    @include font-size(72px,100%,900);
+    color: $blue;
+    margin: 0;
+    margin-bottom: 46px;
+
+    @media screen and (min-width:768px) and (max-width:1279px) {
+      @include font-size(48px,100%,900);
+    }
+    @media screen and (max-width:767px) {
+      @include font-size(36px,110%,900);
+    }
   }
-  .about-wrapper {
-    margin-right: 0;
-    order: 2;
-    font-size: 18px;
+  &__wrapper {
+    margin-right: 120px;
+
+    @media screen and (min-width:768px) and (max-width:1023px) {
+      margin-right: 50px;
+    }
+    @media screen and (max-width:767px) {
+      margin-right: 0;
+      order: 2;
+    }
+  }
+  &__img {
+    box-shadow: 50px 50px 0 $primary;
+    @media screen and (min-width:768px) and (max-width:1023px) {
+      max-width: 50%;
+    }
+    @media screen and (max-width:767px) {
+      order: 1;
+      margin-bottom: 90px;
+      max-width: 200px;
+    }
+  }
+  .button {
+    margin-top: 20px;
   }
 }
-
 
 
 /* BRANDS */
@@ -79,25 +99,17 @@
   @media screen and (max-width: 1024px) {
     margin-bottom: 60px;
   }
-}
 
-.brand-list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.brand-list li {
-  margin: 20px;
-}
-
-@media screen and (max-width: 1024px) {
-  .brand {
-    margin-bottom: 60px;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media screen and (max-width: 1200px) {
+      justify-content: center;
+      margin: 0 -20px;
+    }
   }
-  .brand-list {
-    justify-content: center;
-    margin: 0 -20px;
-    
+  li {
+    margin: 20px;
   }
 }

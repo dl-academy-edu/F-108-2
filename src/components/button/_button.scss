@@ -1,32 +1,30 @@
 .button {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 18px;
+  @include font-size(15px,18px,700);
   text-transform: uppercase;
-  color:#fff;
+  color:$white;
   text-decoration: none;
   width: 181px;
   display: block;
   text-align: center;
   padding: 10px;
   border: none;
-  background: #008752;
+  background: $primary;
   cursor: pointer;
-  transition: background-color .4s;
+  transition: background-color $transition;
   &:hover {
-    background: #26CD8B;
+    background: $primary-hover;
   }
   &:active {
-    background: #005232;
+    background: $primary-active;
   }
 }
 .button_secondary {
-  background: #95459A;
-  transition: background-color .4s;
+  background: $secondary;
+  transition: background-color $transition;
   &:hover {
-    background: #D665DD;
+    background: $secondary-hover;
   }
   &:active {
-    background: #722A77;
+    background: $secondary-active;
   }
 }

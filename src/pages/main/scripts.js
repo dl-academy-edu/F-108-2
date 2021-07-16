@@ -1,6 +1,6 @@
-var popup = document.querySelector('.modal-popup');
+var popup = document.querySelector('.popup');
 var buttonOpen = document.querySelector('.banner__btn_js');
-var buttonClose = popup.querySelector('.popup-close-js');
+var buttonClose = popup.querySelector('.popup__close-js');
 var input = popup.querySelector('input');
 
 buttonOpen.addEventListener('click', function() {

@@ -1,0 +1,49 @@
+.service{
+    &__name {
+      @include font-size(30px,36px,bold);
+      color: #2C3036;
+      text-decoration: none;
+      display: block;
+      margin-top: 19px;
+      margin-bottom: 20px;
+  }
+
+  &__item {
+    max-width: 25%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  &__img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width:1280px) {
+  .service{
+    &__name {
+      max-width: 75%;
+    }
+  }
+}
+
+
+
+@media screen and (min-width:768px) and (max-width:1279px) {
+  .service {
+    &__name {
+      @include font-size(22px,26px,bold);
+    }
+  }
+}
+
+@media screen and (min-width:320px) and (max-width:767px) {
+  .service{
+    &__name {
+      @include font-size(20px,24px,bold);
+    }
+    &__item {
+      max-width: 50%;
+    }
+  }
+}

@@ -10,52 +10,99 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/fonts/oswald.css" />
     <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Главная</title>
   </head>
   <body>
-    <header>
-  <div class="container">
-    <span class="title-block title-block_one">
-      Header
-    </span>
-    <a href="/">Главная</a>
-    <a href="/pages/catalog">Каталог</a>
-    <a href="/pages/toys">Игрушки</a>
-  </div>
-</header>
+    @@include('header/index.html')
 
-    <main class="index-main">
-      <div class="container">
-        <h1 class="title-block title-block_one">Контакты</h1>
-        <h2 class="title-block title-block_two">
-          Вы находитесь на главной странице
-        </h2>
-        <div class="parallax-card">
-          <div class="parallax-card__wrapper-img">
-            <img
-              class="parallax-card__img"
-              src="../../static/images/cactus.jpg"
-              alt="Картинка кактуса"
-            />
-          </div>
+    <main class="container">
+      <section>
+          <h1 class="contact__title">Contact Us</h1>
 
-          <div class="parallax-card__description">
-            <p class="parallax-card__paragraph">Кактус маминой подруги</p>
-            <p class="parallax-card__paragraph">
-              Не нужно поливать и никогда не сохнет
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-  <div class="container">
-    <span class="title-block title-block_one">Footer</span>
-    <a href="/">Главная</a>
-    <a href="/pages/catalog">Каталог</a>
-    <a href="/pages/toys">Игрушки</a>
-  </div>
-</footer>
+          <form action="" method="POST" class="contact__form">
+
+              <fieldset class="form_2-column">
+              <div class="label-wrapper">
+              <label for="field-name" class="form__label">Name</label>
+              <input id="field-name" class="form__input" type="text" placeholder="Ivan Ivanov">
+              </div>
+              <div class="label-wrapper">
+              <label for="field-phone" class="form__label">Phone</label>
+              <input id="field-phone" type="number">
+              </div>
+              </fieldset>
+
+              <fieldset class="label-wrapper">
+                  <label for="field-email" class="form__label">Email</label>
+                  <input id="field-email" type="email">
+                  
+
+                  <!-- <label class="form__label">
+                      <span>Email</span>
+                      <input type="email">
+                  </label> -->
+                  
+              </fieldset>
+
+              <fieldset>
+                  <legend>
+                      Payment Method
+                  </legend>
+
+                  <ul class="dots-none form__list">
+                      <li>
+                          <input id="check-cash" class="form__checkbox-input" type="checkbox" name="cash" checked>
+                          <label for="check-cash" class="form__checkbox-label" tabindex="1">Cash</label>
+                      </li>
+                      <li>
+                          <input id="check-card" class="form__checkbox-input" type="checkbox" name="card">
+                          <label for="check-card" class="form__checkbox-label" tabindex="1">Сredit Сard</label>
+                      </li>
+                      <li>
+                          <label for="check-receipt">
+                              <input id="check-receipt" class="form__checkbox-input" type="checkbox" name="receipt">
+                              <span class="form__checkbox-label" tabindex="1">Receipt</span>
+                          </label>
+                          
+                      </li>
+                  </ul>
+              </fieldset>
+
+              <fieldset class="label-wrapper">
+                <label for="field-city" class="form__label">City of Birth</label>
+                <input id="field-city" type="text">
+                
+            </fieldset>
+
+              <fieldset>
+                  <legend>Do you need a report on the services provided?</legend>
+                  <ul class="dots-none form__list">
+                      <li>
+                          <input type="radio" id="radio-yes" class="form__radio-input" name="delivery">
+                          <label for="radio-yes" class="form__radio-label" tabindex="1">Yes</label>
+                      </li>
+                      <li>
+                          <input type="radio" id="radio-no" name="delivery" class="form__radio-input" checked>
+                          <label for="radio-no" class="form__radio-label" tabindex="1">No</label>
+                      </li>
+                  </ul>
+              </fieldset>
+
+              <fieldset class="label-wrapper">
+                  <label class="form__label">Message</label>
+                  <textarea cols="30" rows="10"></textarea>
+                  
+              </fieldset>
+
+              <button type="submit" class="button">Send</button>
+          </form>
+
+      </section>
+  </main>
+    @@include('map/index.html')
+
+    @@include('footer/index.html')
 
     <script src="scripts.js"></script>
   </body>

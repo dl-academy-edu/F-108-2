@@ -1,13 +1,17 @@
+
+@import "./vars";
+@import "./mixins";
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  @include font-size(16px,21px);
   font-family: 'Lato', "Arial", sans-serif;
   font-style: normal;
-  font-size: 16px;
-  line-height: 21px;
   color: #000;
+  margin: 0;
 }
 
 a {
@@ -19,25 +23,10 @@ img {
   display: block;
 }
 
-%psevdo {
-  content: '';
-  display: block;
-  position: absolute;
-}
-
-@mixin font-size($size:20px,$line-height:20px,$background:red) {
-  font-size: $size;
-  line-height: $line-height;
-  background: $background;
-}
-
 
 .banner .button {
   width: 360px;
-  // font-size: 25px;
   padding: 16px;
-  @include font-size($background:green);
-  @extend %psevdo;
 }
 
 .dots-none {
@@ -49,7 +38,7 @@ img {
 .hidden {
   font-size: 0;
   height: 0;
-  
+  width: 0;
 }
 
 .container {
@@ -59,8 +48,11 @@ img {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-}
 
+  @media screen and (max-width:1200px) {
+    margin: 0 20px;
+  }
+}
 
 
 /* form */
@@ -77,47 +69,25 @@ textarea {
   border: 2px solid #777;
   padding: 12px 20px;
   outline: none;
-  color: red;
+  background: transparent;
+  &:placeholder {
+    color: #777;
+  }
+  &:focus {
+    border-color: $yellow;
+    + label {
+      color: $yellow;
+    }
+  }
 }
 
 textarea {
   resize: none;
 }
 
-input::placeholder {
-  color: #777;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #FFB612;
-}
-
-input:focus + label,
-textarea:focus + label {
-  color: #FFB612;
-}
-
-.label-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  margin: 0 20px;
-}
-
-.label-wrapper:focus-within label {
-  color: #FFB612;
-}
-
-.form-2-column {
-  display: flex;
-  justify-content: space-between;
-}
-
-.form-label,
+.form__label,
 legend {
-  font-size: 18px;
-  line-height: 22px;
+  @include font-size(18px,22px);
   color: #6B6A6A;
   margin-bottom: 6px;
 }
@@ -126,96 +96,110 @@ legend {
   margin-bottom: 14px;
 }
 
-.form-list {
+.label-wrapper {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  &:focus-within label {
+    color: $yellow;
+  }
 }
 
-.form-list li {
-  margin-right: 33px;
-}
+.form {
+  &_2-column {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -10px;
 
-.form-checkbox-input,
-.form-radio-input {
-  display: none;
-}
+    @media screen and (max-width:767px) {
+      flex-wrap: wrap;
+    }
 
-.form-checkbox-label,
-.form-radio-label {
-  position: relative;
-  font-size: 18px;
-  line-height: 22px;
-  color: #6B6A6A;
-  padding-left: 30px;
-  cursor: pointer;
-}
+    .label-wrapper {
+        margin: 0 10px 20px;
+    }
+  }
 
-.form-checkbox-label:before,
-.form-checkbox-label:after,
-.form-radio-label:before,
-.form-radio-label:after  {
-  content: '';
-  display: block;
-  position: absolute;
-  
-}
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      margin-right: 33px;
+      @media screen and (max-width:767px) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__checkbox-input,
+  &__radio-input {
+    display: none;
+    &:checked+ .form__checkbox-label:after,
+    &:checked + .form__radio-label:after {
+      opacity: 1;
+    }
 
-.form-checkbox-label:before {
-  top: 0;
-  left: 0;
-  background: transparent;
-  border: 2px solid #777;
-  height: 21px;
-  width: 21px;
-}
+    &:hover+ .form__checkbox-label:before,
+    &:hover + .form__radio-label:before {
+      border-color: $yellow;
+    }
 
-.form-checkbox-label:after {
-  top: 6px;
-  left: 6px;
-  background: #95459A;
-  height: 13px;
-  width: 13px;
-  opacity: 0;
-}
+    &:hover+ .form__checkbox-label,
+    &:hover + .form__radio-label {
+      color: $yellow;
+    }
 
-.form-checkbox-input:checked + .form-checkbox-label:after,
-.form-radio-input:checked + .form-radio-label:after {
-  opacity: 1;
-}
+    &:disabled + .form__checkbox-label,
+    &:disabled + .form__radio-label  {
+      opacity: .6;
+    }
+  }
 
+  &__checkbox-label,
+  &__radio-label {
+    @include font-size(18px,22px);
+    position: relative;
+    color: #6B6A6A;
+    padding-left: 30px;
+    cursor: pointer;
+    &:before,
+    &:after {
+      @extend %psevdo;
+    }
+    &:before {
+      top: 0;
+      left: 0;
+      background: transparent;
+      border: 2px solid #777;
+      height: 17px;
+      width: 17px;
+    }
+    &:after {
+      top: 4px;
+      left: 4px;
+      background: $secondary;
+      height: 13px;
+      width: 13px;
+      opacity: 0;
+    }
+  }
 
-.form-checkbox-input:hover + .form-checkbox-label:before,
-.form-radio-input:hover + .form-radio-label:before {
-  border-color: #FFB612;
-}
+  &__checkbox-label {
+    &:after {
+      top: 4px;
+      left: 4px;
+      background: $secondary;
+      height: 13px;
+      width: 13px;
+      opacity: 0;
+    }
+  }
 
-.form-checkbox-input:hover + .form-checkbox-label,
-.form-radio-input:hover + .form-radio-label {
-  color: #FFB612;
-}
-
-
-.form-radio-label:before {
-  top: 0;
-  left: 0;
-  background: transparent;
-  border: 2px solid #777;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-}
-
-.form-radio-label:after {
-  top: 5px;
-  left: 5px;
-  background: #95459A;
-  border-radius: 50%;
-  height: 14px;
-  width: 14px;
-  opacity: 0;
-}
-
-.form-radio-label:disabled + .form-radio-label {
-  opacity: .6;
+  &__radio-label {
+    &:before,
+    &:after {
+      border-radius: 50%;
+    }
+  }
 }
 
 
@@ -227,4 +211,5 @@ legend {
 @import "./map/map";
 @import "./popup/popup";
 @import "./services/services";
+@import "./service-card/service-card";
 @import "./chat/chat";

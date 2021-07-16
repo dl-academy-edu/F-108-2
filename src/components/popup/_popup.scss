@@ -1,6 +1,6 @@
 /* POPUP */
 
-.modal-popup {
+.popup {
     display: none;
     background: rgba(149, 69, 154, .9);
     position: fixed;
@@ -8,12 +8,22 @@
     left: 0;
     right: 0;
     bottom: 0;
-  }
-  
-  .modal-popup.popup-open {
+  &.popup-open {
     display: block;
   }
-  
+  &__form {
+    max-width: 680px;
+    width: 100%;
+    background: $light-smoke;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 50px;
+    transform: translate(-50%, -50%);
+    .button {
+      margin-top: 20px;
+    }
+  }
   .close {
     background: transparent;
     border: none;
@@ -22,16 +32,20 @@
     right: 15px;
     cursor: pointer;
   }
-  
-  .popup-form {
-    width: 680px;
-    background: #EEEEEE;
-    position: absolute;
-    top: 270px;
-    left: 367px;
-    padding: 50px;
+}
+
+@media screen and (min-width:768px) and (max-width:1279px) {
+  .popup {
+    &__form {
+      padding: 50px;
+    }
   }
-  
-  .popup-form .button {
-    margin-top: 20px;
+}
+
+@media screen and (max-width:767px) {
+  .popup {
+    &__form {
+      padding: 50px;
+    }
   }
+}
