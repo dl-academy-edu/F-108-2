@@ -1,5 +1,9 @@
 <li class="service__item">
-    <img class="service__img" src="@@img" alt="@@alt">
+  <div class="service__img-wrapper">
+    <picture>
+      <img class="service__img" src="@@img" srcset="@@img, @@img-x2 2x" alt="@@alt">
+    </picture>
+  </div>
     <a href="@@href" class="service__name">@@title</a>
     <p>@@text</p>
     @@include('button/index.html', {

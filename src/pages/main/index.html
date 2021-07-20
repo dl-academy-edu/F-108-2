@@ -30,7 +30,12 @@
                   "text":"Read More"
                 })
             </div>
-            <img class="about__img" src="../../static/images/about.jpg" alt="">
+            <picture class="about__img" >
+              <source srcset="../../static/images/about-mobile.jpg, ../../static/images/about-mobile-2x.jpg 2x" media="(max-width:767px)">
+              <source srcset="../../static/images/about-tablet.jpg, ../../static/images/about-tablet-2x.jpg 2x" media="(max-width:1023px)">
+              <source srcset="../../static/images/about.jpg, ../../static/images/about-2x.jpg 2x">
+              <img src="../../static/images/delete.jpg" srcset="../../static/images/about.jpg, ../../static/images/about-2x.jpg 2x" alt="">
+            </picture>
         </section>
 
         <section class="brand container">
